@@ -69,6 +69,9 @@ declare namespace System {
 declare namespace Styles {
   export type BaseSize = "small" | "medium" | "large";
   export type IconType = "loading";
+
+  export type TextType = "bread" | "heading";
+  type TextVariation = Partial<Record<"bold" | "italic" | "rule", boolean>>;
 }
 declare interface Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;

@@ -8,6 +8,7 @@ import Overlay from "components/ui/Overlay";
 import Loader from "components/ui/Loader";
 import { color, spacing, zIndex } from "variables";
 import { useDebounce } from "hooks";
+import Text from "components/ui/Text";
 const mapStateToProps = (state: Types.RootState) => ({
   initilizing: statusSelectors.requestStatus(state, "initilized") === "loading",
 });
@@ -29,16 +30,25 @@ const App: FunctionComponent<Props> = ({ initilizing }) => {
           <Loader />
         </Overlay>
       )}
-      <View />
+      <View>
+        <Text text="test" type="bread" size="large" />
+        <Text text="test" type="bread" size="medium" />
+        <Text text="test" type="bread" size="small" />
+        <Text text="test" type="heading" size="large" />
+        <Text text="test" type="heading" size="medium" />
+        <Text text="test" type="heading" size="small" />
+      </View>
     </SiteWrapper>
   );
 };
 
 export default connect(mapStateToProps)(App);
 const View = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 1280px;
+  height: 960px;
   background-color: ${color.WHITE};
+  border: ${spacing.VERY_SMALL}px solid ${color.BLACK};
+  border-radius: ${spacing.MEDIUM}px;
 `;
 const SiteWrapper = styled.div`
   width: 100vw;
