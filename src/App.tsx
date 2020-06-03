@@ -4,11 +4,8 @@ import Types from "Types";
 import { statusSelectors } from "store/status";
 
 import styled from "@emotion/styled";
-import Overlay from "components/ui/Overlay";
-import Loader from "components/ui/Loader";
 import { color, zIndex } from "variables";
-import { useDebounce } from "hooks";
-// import Text from "components/ui/Text";
+import Loader from "components/feature/Loader";
 import View from "components/view";
 const mapStateToProps = (state: Types.RootState) => ({
   initilizing: statusSelectors.requestStatus(state, "initilized") === "loading",
@@ -18,19 +15,9 @@ type StateProps = ReturnType<typeof mapStateToProps>;
 type Props = StateProps;
 
 const App: FunctionComponent<Props> = ({ initilizing }) => {
-  const debouncedInitilizing = useDebounce(initilizing, 1200);
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    setIsLoading(initilizing);
-  }, [initilizing]);
-
   return (
     <SiteWrapper>
-      {debouncedInitilizing && (
-        <Overlay show={isLoading}>
-          <Loader />
-        </Overlay>
-      )}
+      <Loader isLoading={initilizing} />
       {!initilizing && <View />}
     </SiteWrapper>
   );

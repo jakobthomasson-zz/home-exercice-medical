@@ -1,23 +1,32 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import {} from "variables";
+import { color, zIndex } from "variables";
 import Icon from "components/ui/Icon";
+import Overlay from "components/ui/Overlay";
+import { useDebounce } from "hooks";
 
-type Props = {};
+type Props = { isLoading: boolean };
 
 const LoaderComponent: FunctionComponent<Props> = (props) => {
-  const { children } = props;
+  const { isLoading } = props;
+  const debouncedInitilizing = useDebounce(isLoading, 100);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(isLoading);
+  }, [isLoading]);
+  if (!debouncedInitilizing) return null;
   return (
-    <Wrapper>
-      <Icon type="loading" size="large" />
-    </Wrapper>
+    <Overlay show={show}>
+      <Wrapper>
+        <Icon type="loading" size="large" />
+      </Wrapper>
+    </Overlay>
   );
 };
 
 export default LoaderComponent;
 
 const Wrapper = styled.div`
-  display: inline-block;
   position: relative;
 
   .icon {

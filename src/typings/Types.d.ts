@@ -9,8 +9,8 @@ import { TestResultAction } from "store/testResult";
 declare module "Types" {
   export type RootState = StateType<typeof rootReducer>;
   export type RootAction =
-    | AppAction
     | StatusAction
     | PatientAction
-    | TestResultAction;
+    | TestResultAction
+    | AppAction;
 }

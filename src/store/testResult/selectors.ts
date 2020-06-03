@@ -12,7 +12,8 @@ export const allItems = createSelector(byId, allIds, (byId, allIds) => {
 });
 
 export const item = createSelector(
-  (state: Types.RootState, ownProps: { itemId: string }) => ownProps.itemId,
+  (state: Types.RootState, ownProps: { testResultId: string }) =>
+    ownProps.testResultId,
   byId,
-  (itemId, byId) => R.pipe(byId, R.prop(itemId))
+  (testResultId, byId) => R.pipe(byId, R.prop(testResultId))
 );

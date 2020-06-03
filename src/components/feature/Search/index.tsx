@@ -1,29 +1,14 @@
-import React, {
-  FunctionComponent,
-  useRef,
-  useState,
-  useEffect,
-  useCallback,
-} from "react";
+import React, { FunctionComponent, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import { color, spacing, shadow } from "variables";
 import getTextStyle from "components/ui/Text/styled";
 import Icon from "components/ui/Icon";
-import { useDebounce } from "hooks";
 
-type Props = { onSearch(search: string): void };
+type Props = { onSearch(search: string): void; placeholder: string };
 
 const Search: FunctionComponent<Props> = (props) => {
-  const { onSearch } = props;
-
+  const { onSearch, placeholder } = props;
   const inputRef = useRef<HTMLInputElement>(null);
-  const [search, setSearch] = useState("");
-  const debouncedSearch = useDebounce(search, 400);
-
-  useEffect(() => {
-    onSearch(debouncedSearch);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedSearch]);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -34,9 +19,8 @@ const Search: FunctionComponent<Props> = (props) => {
   return (
     <Wrapper>
       <input
-        onChange={(e) => setSearch(e.currentTarget.value)}
-        defaultValue={search}
-        placeholder="search for patient..."
+        onChange={(e) => onSearch(e.currentTarget.value)}
+        placeholder={placeholder}
         ref={inputRef}
       />
       <Icon type="search" size="small" />
@@ -46,7 +30,7 @@ const Search: FunctionComponent<Props> = (props) => {
 
 export default Search;
 
-const inputTextStyle = getTextStyle("heading", "medium", { rule: true });
+const inputTextStyle = getTextStyle("heading", "medium");
 
 const Wrapper = styled.div`
   background-color: ${color.WHITE};

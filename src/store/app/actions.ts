@@ -1,11 +1,14 @@
 import { createAction, createCustomAction } from "typesafe-actions";
-import { START_SAVE } from "./constants";
-
-// export const startSave: EmptyAction<string> = { type: START_SAVE };
+import { START_SAVE, START_SEARCH, SET_SEARCH_PATIENT_IDS } from "./constants";
 
 export const startSave = createCustomAction(START_SAVE)();
 
-// startSave.
-//     = createAction(
-//   START_SAVE
-// )());
+export const startSearch = createAction(
+  START_SEARCH,
+  (payload: string) => payload
+)();
+
+export const setSearchPatientIds = createAction(
+  SET_SEARCH_PATIENT_IDS,
+  (payload: string[]) => payload
+)();
