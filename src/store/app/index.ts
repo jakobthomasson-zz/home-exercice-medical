@@ -9,6 +9,7 @@ export type AppAction = ActionType<typeof appActions>;
 
 export type AppState = {
   searchPatientIds: string[];
+  selectedPatientId: string | null;
 };
 
 export { appConstants, appActions, appSagas, appReducer, appSelectors };

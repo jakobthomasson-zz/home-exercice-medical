@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useCallback } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import Types from "Types";
@@ -7,7 +7,7 @@ import { color, spacing, zIndex } from "variables";
 import Loader from "components/feature/Loader";
 import SearchPatient from "./SearchPatient";
 import Patient from "./Patient";
-import { appSelectors } from "store/app";
+import { appSelectors, appActions } from "store/app";
 import { statusSelectors } from "store/status";
 
 // import {actions, selectors} from 'store/...';
@@ -15,8 +15,12 @@ import { statusSelectors } from "store/status";
 const mapStateToProps = (state: Types.RootState) => ({
   resultPatientIds: appSelectors.searchPatientIds(state),
   isSearching: statusSelectors.requestStatus(state, "searching") === "loading",
+  selectedPatientId: appSelectors.selectedPatientId(state),
 });
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  selectPatientId: (patientId: string) =>
+    dispatch(appActions.setSelectedPatientId(patientId)),
+});
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = ReturnType<typeof mapDispatchToProps>;
@@ -25,7 +29,12 @@ type OwnProps = {};
 type Props = StateProps & DispatchProps & OwnProps;
 
 const Browser: FunctionComponent<Props> = (props) => {
-  const { resultPatientIds, isSearching } = props;
+  const {
+    resultPatientIds,
+    isSearching,
+    selectedPatientId,
+    selectPatientId,
+  } = props;
   return (
     <Wrapper>
       <SearchPatient />
@@ -34,7 +43,11 @@ const Browser: FunctionComponent<Props> = (props) => {
 
         <ul>
           {resultPatientIds.map((patientId) => (
-            <li key={patientId}>
+            <li
+              key={patientId}
+              aria-expanded={patientId === selectedPatientId}
+              onClick={() => selectPatientId(patientId)}
+            >
               <Patient patientId={patientId} />
             </li>
           ))}
@@ -69,7 +82,8 @@ const Wrapper = styled.div`
         :nth-of-type(2n-1) {
           background-color: ${color.LIGHT};
         }
-        &:hover {
+        &:hover,
+        &[aria-expanded="true"] {
           background-color: ${color.SHADOW};
         }
       }

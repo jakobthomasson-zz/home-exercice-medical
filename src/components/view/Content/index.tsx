@@ -16,7 +16,12 @@ type Props = StateProps & DispatchProps & OwnProps;
 
 const Content: FunctionComponent<Props> = (props) => {
   const { children } = props;
-  return <Wrapper>{children}</Wrapper>;
+  return (
+    <Wrapper>
+      <div className="patient"></div>
+      <ul className="test-results"></ul>
+    </Wrapper>
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

@@ -7,16 +7,11 @@ import {
   put,
   delay,
 } from "redux-saga/effects";
-import * as R from "remeda";
 
 import { ActionType } from "typesafe-actions";
 import { appActions, appConstants } from "store/app";
 import { statusActions } from "store/status";
-import {
-  patientHelpers,
-  patientSelectors,
-  patientActions,
-} from "store/patient";
+import { patientHelpers, patientSelectors } from "store/patient";
 import { testResultHelpers } from "store/testResult";
 
 import Fuse from "fuse.js";
