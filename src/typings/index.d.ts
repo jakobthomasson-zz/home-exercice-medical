@@ -66,6 +66,10 @@ declare namespace System {
   export type RequestType = "initilized" | "save";
 }
 
+declare namespace Styles {
+  export type BaseSize = "small" | "medium" | "large";
+  export type IconType = "loading";
+}
 declare interface Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
