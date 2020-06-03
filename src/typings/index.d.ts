@@ -1,31 +1,57 @@
 declare namespace Diaverum {
-  interface RawData {
+  interface RawItem {
     clinicNo: string;
     barcode: string;
     patientId: string;
     patientName: string;
-    dateOfBirth: string;
-    gender: "F" | "M";
+    dob: string;
+    gender: string;
     collectionDate: string;
     collectionTime: string;
     testCode: string;
     testName: string;
     result: string;
+    unit: string;
+    refrangeLow: string;
+    refrangeHigh: string;
+    note: string;
+    nonSpecRefs: string;
+  }
+  type Gender = "F" | "M";
+  interface Patient {
+    id: string;
+    name: string;
+    dobTimestamp: number;
+    gender: Gender;
+    testIds: string[];
+  }
+
+  type ResultType = "Pending" | number;
+  interface TestResult {
+    id: string;
+    barcode: number;
+    clinicId: string;
+    patientId: string;
+    collectionTimestamp: number;
+    testCode: string;
+    testName: string;
+    result: ResultType;
     unit?: string;
-    refrangeLow?: string;
-    refrangeHigh?: string;
+    refrangeLow?: number;
+    refrangeHigh?: number;
     note?: string;
     nonSpecRefs?: string;
   }
 
-  interface Patient {
+  // TODO: Separate into two domains, TestResult & Test.
+  interface Test {
     id: string;
+    code: string;
     name: string;
-    dateOfBirth: string;
-    gender: "F" | "M";
+    unit: string;
   }
-
-  interface TestResult {
+  // TODO: implement clinic
+  interface Clinic {
     id: string;
   }
 }
