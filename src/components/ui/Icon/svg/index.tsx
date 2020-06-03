@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 
 // ICONS
 import LoadingIcon from "./Loading";
+import SearchIcon from "./Search";
 
 type Props = {
   icon: Styles.IconType;
@@ -12,6 +13,8 @@ const SvgComponent: FunctionComponent<Props> = (props) => {
   switch (icon) {
     case "loading":
       return <LoadingIcon />;
+    case "search":
+      return <SearchIcon />;
     default:
       return null;
   }
