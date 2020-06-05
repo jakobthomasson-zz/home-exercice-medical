@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/home-exercise-jakob/static/css/main.aa914634.chunk.css",
-    "main.js": "/home-exercise-jakob/static/js/main.f4cc93c3.chunk.js",
-    "main.js.map": "/home-exercise-jakob/static/js/main.f4cc93c3.chunk.js.map",
-    "runtime-main.js": "/home-exercise-jakob/static/js/runtime-main.a560edfc.js",
-    "runtime-main.js.map": "/home-exercise-jakob/static/js/runtime-main.a560edfc.js.map",
-    "static/js/2.2d51fd6d.chunk.js": "/home-exercise-jakob/static/js/2.2d51fd6d.chunk.js",
-    "static/js/2.2d51fd6d.chunk.js.map": "/home-exercise-jakob/static/js/2.2d51fd6d.chunk.js.map",
-    "index.html": "/home-exercise-jakob/index.html",
-    "precache-manifest.df362c687bd48ed337cbcdbd9cd0f9ae.js": "/home-exercise-jakob/precache-manifest.df362c687bd48ed337cbcdbd9cd0f9ae.js",
-    "service-worker.js": "/home-exercise-jakob/service-worker.js",
-    "static/css/main.aa914634.chunk.css.map": "/home-exercise-jakob/static/css/main.aa914634.chunk.css.map",
-    "static/js/2.2d51fd6d.chunk.js.LICENSE.txt": "/home-exercise-jakob/static/js/2.2d51fd6d.chunk.js.LICENSE.txt"
+    "main.css": "/home-exercice-medical/static/css/main.aa914634.chunk.css",
+    "main.js": "/home-exercice-medical/static/js/main.6a269646.chunk.js",
+    "main.js.map": "/home-exercice-medical/static/js/main.6a269646.chunk.js.map",
+    "runtime-main.js": "/home-exercice-medical/static/js/runtime-main.ba18686a.js",
+    "runtime-main.js.map": "/home-exercice-medical/static/js/runtime-main.ba18686a.js.map",
+    "static/js/2.2d51fd6d.chunk.js": "/home-exercice-medical/static/js/2.2d51fd6d.chunk.js",
+    "static/js/2.2d51fd6d.chunk.js.map": "/home-exercice-medical/static/js/2.2d51fd6d.chunk.js.map",
+    "index.html": "/home-exercice-medical/index.html",
+    "precache-manifest.825b1baa817943b37fc52b31d815e9e1.js": "/home-exercice-medical/precache-manifest.825b1baa817943b37fc52b31d815e9e1.js",
+    "service-worker.js": "/home-exercice-medical/service-worker.js",
+    "static/css/main.aa914634.chunk.css.map": "/home-exercice-medical/static/css/main.aa914634.chunk.css.map",
+    "static/js/2.2d51fd6d.chunk.js.LICENSE.txt": "/home-exercice-medical/static/js/2.2d51fd6d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a560edfc.js",
+    "static/js/runtime-main.ba18686a.js",
     "static/js/2.2d51fd6d.chunk.js",
     "static/css/main.aa914634.chunk.css",
-    "static/js/main.f4cc93c3.chunk.js"
+    "static/js/main.6a269646.chunk.js"
   ]
 }
