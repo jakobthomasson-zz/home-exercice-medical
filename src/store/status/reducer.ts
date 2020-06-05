@@ -3,7 +3,7 @@ import { StatusAction, StatusState, statusActions as actions } from ".";
 import * as R from "remeda";
 const initialState: StatusState = {
   initilized: "unstarted",
-  saving: "unstarted",
+  select_patient: "unstarted",
   searching: "unstarted",
 };
 

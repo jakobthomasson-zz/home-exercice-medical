@@ -104,18 +104,23 @@ function* startSearchSaga(action: ActionType<typeof appActions.startSearch>) {
   }
 }
 
-function* startSaveSaga(action: ActionType<typeof appActions.startSave>) {
+function* startSelectSaga(action: ActionType<typeof appActions.startSelect>) {
   try {
     yield put(
       statusActions.setRequestStatus({
-        request: "saving",
+        request: "select_patient",
         status: "loading",
       })
     );
+
+    const patientId = action.payload;
+    yield put(appActions.setSelectedPatientId(patientId));
+
+    yield delay(200);
   } catch (error) {
     yield put(
       statusActions.setRequestStatus({
-        request: "saving",
+        request: "select_patient",
         status: "error",
       })
     );
@@ -123,7 +128,7 @@ function* startSaveSaga(action: ActionType<typeof appActions.startSave>) {
   } finally {
     yield put(
       statusActions.setRequestStatus({
-        request: "saving",
+        request: "select_patient",
         status: "done",
       })
     );
@@ -133,7 +138,7 @@ function* startSaveSaga(action: ActionType<typeof appActions.startSave>) {
 export function* watcher() {
   yield fork(initializeSaga);
   yield all([
-    yield takeLatest(appConstants.START_SAVE, startSaveSaga),
     yield takeLatest(appConstants.START_SEARCH, startSearchSaga),
+    yield takeLatest(appConstants.START_SELECT, startSelectSaga),
   ]);
 }

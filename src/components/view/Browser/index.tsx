@@ -1,10 +1,10 @@
-import React, { FunctionComponent, useCallback } from "react";
+import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import Types from "Types";
 import styled from "@emotion/styled";
-import { color, spacing, zIndex } from "variables";
-import Loader from "components/feature/Loader";
+import { color, spacing } from "variables";
+import Loader from "components/ui/Loader";
 import SearchPatient from "./SearchPatient";
 import Patient from "./Patient";
 import { appSelectors, appActions } from "store/app";
@@ -18,7 +18,7 @@ const mapStateToProps = (state: Types.RootState) => ({
 });
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   selectPatientId: (patientId: string) =>
-    dispatch(appActions.setSelectedPatientId(patientId)),
+    dispatch(appActions.startSelect(patientId)),
 });
 
 type StateProps = ReturnType<typeof mapStateToProps>;
@@ -45,12 +45,13 @@ const Browser: FunctionComponent<Props> = (props) => {
               key={patientId}
               active={patientId === selectedPatientId}
               onClick={() => selectPatientId(patientId)}
+              size="small"
             >
               <Patient patientId={patientId} />
             </ListItem>
           ))}
         </List>
-        <FillerList numberOfItems={50} />
+        <FillerList numberOfItems={50} size="small" />
       </div>
     </Wrapper>
   );

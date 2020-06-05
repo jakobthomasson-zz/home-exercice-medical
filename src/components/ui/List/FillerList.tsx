@@ -5,14 +5,16 @@ import ListItem from "./ListItem";
 import * as R from "remeda";
 import { zIndex } from "variables";
 
-type Props = { numberOfItems: number };
+type Props = { numberOfItems: number; size?: Styles.BaseSize };
 
 const FillerList: FunctionComponent<Props> = (props) => {
-  const { numberOfItems } = props;
+  const { numberOfItems, size = "medium" } = props;
 
   const fillers = useMemo(() => {
-    return R.times(numberOfItems, (n) => <ListItem key={n} filler={true} />);
-  }, [numberOfItems]);
+    return R.times(numberOfItems, (n) => (
+      <ListItem key={n} filler={true} size={size} />
+    ));
+  }, [numberOfItems, size]);
   return <EmptyList>{fillers}</EmptyList>;
 };
 

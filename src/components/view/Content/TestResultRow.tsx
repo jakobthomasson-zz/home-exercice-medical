@@ -23,7 +23,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 
 const TestResultRow: FunctionComponent<Props> = (props) => {
   const { testResult } = props;
-  return <Wrapper></Wrapper>;
+  return <Wrapper>{testResult.barcode}</Wrapper>;
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestResultRow);

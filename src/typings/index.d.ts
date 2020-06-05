@@ -63,7 +63,7 @@ declare namespace System {
   }
 
   export type RequestStatus = "unstarted" | "loading" | "error" | "done";
-  export type RequestType = "initilized" | "saving" | "searching";
+  export type RequestType = "initilized" | "select_patient" | "searching";
 }
 
 declare namespace Styles {

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "@emotion/styled";
-import Search from "components/feature/Search";
+import Search from "components/ui/Search";
 import { color, spacing } from "variables";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";

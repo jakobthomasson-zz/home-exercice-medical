@@ -5,7 +5,7 @@ import { statusSelectors } from "store/status";
 
 import styled from "@emotion/styled";
 import { color, zIndex } from "variables";
-import Loader from "components/feature/Loader";
+import Loader from "components/ui/Loader";
 import View from "components/view";
 const mapStateToProps = (state: Types.RootState) => ({
   initilizing: statusSelectors.requestStatus(state, "initilized") === "loading",
