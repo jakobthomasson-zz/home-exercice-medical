@@ -7,11 +7,11 @@ const standardType = css`
 `;
 const standardSize: Record<Styles.BaseSize, number> = {
   small: 14,
-  medium: 17,
+  medium: 16,
   large: 24,
 };
 const boldCss = css`
-  font-weight: 500;
+  font-weight: 600;
 `;
 const italicCss = css`
   font-style: italic;

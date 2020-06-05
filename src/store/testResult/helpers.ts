@@ -1,7 +1,7 @@
-import { put, delay } from "redux-saga/effects";
+import { put } from "redux-saga/effects";
 import { testResultActions } from "store/testResult";
 import * as R from "remeda";
-import { utilityHelpers, domainHelpers } from "helpers";
+import { utilityHelpers } from "helpers";
 
 function getOptionalStringValue(valueString: string) {
   const isEmpty = utilityHelpers.isEmpty(valueString);
@@ -21,12 +21,6 @@ function getOptionalNumberValue(valueString: string) {
 }
 
 function* setDomainFromRawItems(rawItems: Diaverum.RawItem[]) {
-  yield delay(100);
-  const domain: System.NormalizedDomain<Diaverum.TestResult> = {
-    allIds: [],
-    byId: {},
-  };
-
   const testResults = rawItems.map((rawItem) => {
     const {
       barcode,
@@ -44,19 +38,19 @@ function* setDomainFromRawItems(rawItems: Diaverum.RawItem[]) {
       nonSpecRefs,
     } = rawItem;
 
-    const collectionTimestamp = new Date(
-      `${collectionDate} ${collectionTime}`
-    ).getTime();
+    const collected = `${collectionDate}, ${collectionTime}`;
 
+    const realResult: Diaverum.ResultType =
+      result !== "Pending" ? Number(result) : result;
     const testResult: Diaverum.TestResult = {
       id: barcode,
       barcode: Number(barcode),
       clinicId: clinicNo,
       patientId,
-      collectionTimestamp,
+      collected,
       testCode,
       testName,
-      result: result as Diaverum.ResultType,
+      result: realResult,
       unit: utilityHelpers.isEmpty(unit) ? undefined : unit,
       refrangeLow: getOptionalNumberValue(refrangeLow),
       refrangeHigh: getOptionalNumberValue(refrangeHigh),

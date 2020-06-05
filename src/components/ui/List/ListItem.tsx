@@ -92,8 +92,6 @@ const Wrapper = styled.li<{
   hoverable: boolean;
   height: number;
 }>`
-  padding: 0 ${spacing.LARGE}px;
-
   display: flex;
   align-items: center;
   ${specificCss}

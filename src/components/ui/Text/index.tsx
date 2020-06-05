@@ -5,7 +5,6 @@ import { SerializedStyles } from "@emotion/core";
 import getStyle from "./styled";
 
 const Span = styled.span<{ css: SerializedStyles }>`
-  /* display: inline-block; */
   ${({ css }) => css}
 `;
 

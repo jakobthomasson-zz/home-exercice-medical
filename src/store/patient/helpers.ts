@@ -22,15 +22,11 @@ function* setDomainFromRawItems(rawItems: Diaverum.RawItem[]) {
 
     const { dob, gender, patientId, patientName } = patientInfo;
 
-    // valid date check
-    const dobTimestamp = new Date(dob).getTime();
-    if (isNaN(dobTimestamp)) return cleanUp(key);
-
     const patient: Diaverum.Patient = {
       id: patientId,
       name: patientName,
       gender: gender as Diaverum.Gender,
-      dobTimestamp,
+      dob,
       testIds,
     };
 

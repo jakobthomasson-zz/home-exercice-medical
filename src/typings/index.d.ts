@@ -21,7 +21,7 @@ declare namespace Diaverum {
   interface Patient {
     id: string;
     name: string;
-    dobTimestamp: number;
+    dob: string;
     gender: Gender;
     testIds: string[];
   }
@@ -32,7 +32,7 @@ declare namespace Diaverum {
     barcode: number;
     clinicId: string;
     patientId: string;
-    collectionTimestamp: number;
+    collected: string;
     testCode: string;
     testName: string;
     result: ResultType;
@@ -64,6 +64,11 @@ declare namespace System {
 
   export type RequestStatus = "unstarted" | "loading" | "error" | "done";
   export type RequestType = "initilized" | "select_patient" | "searching";
+
+  export type HeaderColumn = {
+    fr: number;
+    title: string;
+  };
 }
 
 declare namespace Styles {

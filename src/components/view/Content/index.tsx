@@ -9,18 +9,27 @@ import TestResultRow from "./TestResultRow";
 import Loader from "components/ui/Loader";
 import { FillerList, ListItem, List } from "components/ui/List";
 import { statusSelectors } from "store/status";
+import { HeaderRow } from "components/ui/Row";
+
 const mapStateToProps = (state: Types.RootState) => ({
   selectedPatient: appSelectors.selectedPatient(state),
   isSelecting:
     statusSelectors.requestStatus(state, "select_patient") === "loading",
 });
 
+export const HEADER_COLUMNS: System.HeaderColumn[] = [
+  { fr: 1, title: "collected" },
+  { fr: 1, title: "barcode" },
+  { fr: 2, title: "test" },
+  { fr: 2, title: "result" },
+];
+
 type StateProps = ReturnType<typeof mapStateToProps>;
 
 type Props = StateProps;
 
 const Content: FunctionComponent<Props> = (props) => {
-  const { children, selectedPatient, isSelecting } = props;
+  const { selectedPatient, isSelecting } = props;
   return (
     <Wrapper>
       <div className="patient">
@@ -33,7 +42,7 @@ const Content: FunctionComponent<Props> = (props) => {
             />
             <LabeledText
               label="birthdate"
-              text={new Date(selectedPatient.dobTimestamp).toDateString()}
+              text={selectedPatient.dob}
               size="medium"
             />
             <LabeledText
@@ -54,7 +63,7 @@ const Content: FunctionComponent<Props> = (props) => {
         <Loader isLoading={isSelecting} />
         <List>
           <ListItem key="header" header={true} size="large">
-            asdas
+            <HeaderRow headerColumns={HEADER_COLUMNS} />
           </ListItem>
           {selectedPatient &&
             selectedPatient.testIds.map((testId) => (
