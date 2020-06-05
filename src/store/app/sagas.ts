@@ -75,8 +75,8 @@ function* startSearchSaga(action: ActionType<typeof appActions.startSearch>) {
     const items: Diaverum.Patient[] = yield select(patientSelectors.allItems);
     const options: Fuse.IFuseOptions<Diaverum.Patient> = {
       keys: [
-        { name: "name", weight: 0.9 },
-        { name: "gender", weight: 0.3 },
+        { name: "name", weight: 1 },
+        { name: "id", weight: 2 },
       ],
       shouldSort: true,
       threshold: 0.2,

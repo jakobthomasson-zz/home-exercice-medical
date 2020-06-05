@@ -9,9 +9,9 @@ const HeaderRow: FunctionComponent<Props> = (props) => {
 
   return (
     <Row columns={headerColumns.map((headerColum) => headerColum.fr)}>
-      {headerColumns.map((headerColumn, index) => (
-        <Column key={index}>
-          <Text text={headerColumn.title} variation={{ bold: true }} />
+      {headerColumns.map(({ title, align }, index) => (
+        <Column key={index} align={align}>
+          <Text text={title} variation={{ bold: true }} />
         </Column>
       ))}
     </Row>

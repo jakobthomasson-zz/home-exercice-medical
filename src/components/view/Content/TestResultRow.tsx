@@ -21,16 +21,16 @@ const TestResultRow: FunctionComponent<Props> = (props) => {
   const { testResult } = props;
   return (
     <Row columns={HEADER_COLUMNS.map((column) => column.fr)}>
-      <Column>
+      <Column align={HEADER_COLUMNS[0] && HEADER_COLUMNS[0].align}>
         <Text text={testResult.collected} />
       </Column>
-      <Column>
+      <Column align={HEADER_COLUMNS[1] && HEADER_COLUMNS[1].align}>
         <Text text={`${testResult.barcode}`} />
       </Column>
-      <Column>
+      <Column align={HEADER_COLUMNS[2] && HEADER_COLUMNS[2].align}>
         <Text text={`${testResult.testCode}, ${testResult.testName}`} />
       </Column>
-      <Column>
+      <Column align={HEADER_COLUMNS[3] && HEADER_COLUMNS[3].align}>
         <Text text={`${testResult.result}`} />
       </Column>
     </Row>

@@ -6,11 +6,17 @@ import styled from "@emotion/styled";
 import { color, spacing } from "variables";
 import Loader from "components/ui/Loader";
 import SearchPatient from "./SearchPatient";
-import Patient from "./Patient";
+import Patient from "./PatientRow";
 import { appSelectors, appActions } from "store/app";
 import { statusSelectors } from "store/status";
+import { HeaderRow } from "components/ui/Row";
 import { List, ListItem, FillerList } from "components/ui/List";
 
+export const HEADER_COLUMNS: System.HeaderColumn[] = [
+  { fr: 1, title: "no", align: "center" },
+  { fr: 4, title: "name" },
+  { fr: 1, title: "tests", align: "flex-end" },
+];
 const mapStateToProps = (state: Types.RootState) => ({
   resultPatientIds: appSelectors.searchPatientIds(state),
   isSearching: statusSelectors.requestStatus(state, "searching") === "loading",
@@ -40,6 +46,9 @@ const Browser: FunctionComponent<Props> = (props) => {
       <div className="patients">
         <Loader isLoading={isSearching} />
         <List>
+          <ListItem key="header" header={true} size="small">
+            <HeaderRow headerColumns={HEADER_COLUMNS} />
+          </ListItem>
           {resultPatientIds.map((patientId) => (
             <ListItem
               key={patientId}
@@ -60,7 +69,7 @@ const Browser: FunctionComponent<Props> = (props) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Browser);
 
 const Wrapper = styled.div`
-  width: ${spacing.HUGE * 6}px;
+  width: 33%;
   height: 100%;
   display: flex;
   flex-direction: column;

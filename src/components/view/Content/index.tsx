@@ -21,7 +21,7 @@ export const HEADER_COLUMNS: System.HeaderColumn[] = [
   { fr: 1, title: "collected" },
   { fr: 1, title: "barcode" },
   { fr: 2, title: "test" },
-  { fr: 2, title: "result" },
+  { fr: 3, title: "result", align: "center" },
 ];
 
 type StateProps = ReturnType<typeof mapStateToProps>;

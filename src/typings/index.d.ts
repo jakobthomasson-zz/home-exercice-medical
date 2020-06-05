@@ -68,6 +68,7 @@ declare namespace System {
   export type HeaderColumn = {
     fr: number;
     title: string;
+    align?: "center" | "flex-start" | "flex-end";
   };
 }
 

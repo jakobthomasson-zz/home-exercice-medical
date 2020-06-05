@@ -7,7 +7,6 @@ import { color, spacing } from "variables";
 type Props = {};
 
 const View: FunctionComponent<Props> = (props) => {
-  const { children } = props;
   return (
     <Wrapper>
       <Browser />
@@ -22,8 +21,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  width: 1280px;
-  height: 960px;
+  width: 1680px;
+  height: 1050px;
   background-color: ${color.WHITE};
   border: ${spacing.VERY_SMALL}px solid ${color.BLACK};
   border-radius: ${spacing.MEDIUM}px;
