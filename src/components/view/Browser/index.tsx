@@ -9,8 +9,7 @@ import SearchPatient from "./SearchPatient";
 import Patient from "./Patient";
 import { appSelectors, appActions } from "store/app";
 import { statusSelectors } from "store/status";
-
-// import {actions, selectors} from 'store/...';
+import { List, ListItem, FillerList } from "components/ui/List";
 
 const mapStateToProps = (state: Types.RootState) => ({
   resultPatientIds: appSelectors.searchPatientIds(state),
@@ -40,18 +39,18 @@ const Browser: FunctionComponent<Props> = (props) => {
       <SearchPatient />
       <div className="patients">
         <Loader isLoading={isSearching} />
-
-        <ul>
+        <List>
           {resultPatientIds.map((patientId) => (
-            <li
+            <ListItem
               key={patientId}
-              aria-expanded={patientId === selectedPatientId}
+              active={patientId === selectedPatientId}
               onClick={() => selectPatientId(patientId)}
             >
               <Patient patientId={patientId} />
-            </li>
+            </ListItem>
           ))}
-        </ul>
+        </List>
+        <FillerList numberOfItems={50} />
       </div>
     </Wrapper>
   );
@@ -60,33 +59,15 @@ const Browser: FunctionComponent<Props> = (props) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Browser);
 
 const Wrapper = styled.div`
-  width: 33%;
+  width: ${spacing.HUGE * 6}px;
   height: 100%;
   display: flex;
   flex-direction: column;
   border-right: ${spacing.VERY_SMALL}px solid ${color.BLACK};
   > div.patients {
     width: 100%;
+    overflow-y: auto;
     flex-grow: 1;
     position: relative;
-    > ul {
-      height: 100%;
-      z-index: ${zIndex.OVERLAY - 1};
-      > li {
-        height: ${spacing.VERY_LARGE}px;
-        display: flex;
-        align-items: center;
-        padding: 0 ${spacing.LARGE}px;
-        background-color: ${color.WHITE};
-
-        :nth-of-type(2n-1) {
-          background-color: ${color.LIGHT};
-        }
-        &:hover,
-        &[aria-expanded="true"] {
-          background-color: ${color.SHADOW};
-        }
-      }
-    }
   }
 `;

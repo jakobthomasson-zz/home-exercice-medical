@@ -30,7 +30,7 @@ const Search: FunctionComponent<Props> = (props) => {
 
 export default Search;
 
-const inputTextStyle = getTextStyle("heading", "medium");
+const inputTextStyle = getTextStyle("standard", "large");
 
 const Wrapper = styled.div`
   background-color: ${color.WHITE};
@@ -38,7 +38,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: ${spacing.VERY_SMALL}px;
   border: ${spacing.TINY}px solid ${color.DARK};
   box-shadow: ${shadow.search};
   padding: 0 ${spacing.MEDIUM}px;

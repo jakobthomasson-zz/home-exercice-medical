@@ -70,7 +70,7 @@ declare namespace Styles {
   export type BaseSize = "small" | "medium" | "large";
   export type IconType = "loading" | "search";
 
-  export type TextType = "bread" | "heading";
+  export type TextType = "standard";
   type TextVariation = Partial<Record<"bold" | "italic" | "rule", boolean>>;
 }
 declare interface Window {

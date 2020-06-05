@@ -21,6 +21,7 @@ export default View;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   width: 1280px;
   height: 960px;
   background-color: ${color.WHITE};

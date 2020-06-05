@@ -28,7 +28,8 @@ export default LoaderComponent;
 
 const Wrapper = styled.div`
   position: relative;
-
+  top: 0;
+  z-index: ${zIndex.LOADER};
   .icon {
     animation: bouncing 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }

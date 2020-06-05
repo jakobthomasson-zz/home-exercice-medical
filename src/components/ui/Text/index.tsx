@@ -28,7 +28,7 @@ type Props = OwnProps & ElementProps;
 const TextComponent: FunctionComponent<Props> = ({
   text,
   size = "medium",
-  type = "bread",
+  type = "standard",
   variation,
   ...restProps
 }) => {
