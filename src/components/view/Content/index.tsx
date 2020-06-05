@@ -53,6 +53,9 @@ const Content: FunctionComponent<Props> = (props) => {
       <div className="test-result">
         <Loader isLoading={isSelecting} />
         <List>
+          <ListItem key="header" header={true} size="large">
+            asdas
+          </ListItem>
           {selectedPatient &&
             selectedPatient.testIds.map((testId) => (
               <ListItem key={testId} size="large">
@@ -60,7 +63,7 @@ const Content: FunctionComponent<Props> = (props) => {
               </ListItem>
             ))}
         </List>
-        <FillerList numberOfItems={50} size="large" />
+        <FillerList numberOfItems={50} size="large" header={true} />
       </div>
     </Wrapper>
   );

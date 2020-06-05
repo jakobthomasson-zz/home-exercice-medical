@@ -4,7 +4,6 @@ import { Dispatch } from "redux";
 import Types from "Types";
 import styled from "@emotion/styled";
 import { testResultSelectors } from "store/testResult";
-import Text from "components/ui/Text";
 // import {actions, selectors} from 'store/...';
 
 const mapStateToProps = (
