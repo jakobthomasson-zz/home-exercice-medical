@@ -4,9 +4,7 @@ import Browser from "./Browser";
 import Content from "./Content";
 import { color, spacing } from "variables";
 
-type Props = {};
-
-const View: FunctionComponent<Props> = (props) => {
+const View: FunctionComponent = () => {
   return (
     <Wrapper>
       <Browser />

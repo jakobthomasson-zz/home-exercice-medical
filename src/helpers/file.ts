@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function readTextFile(dataPath: string[]) {
+async function readTextFile(dataPath: string[]) {
   return axios
     .get<string>(dataPath.join("/"))
     .then((response) => response.data);

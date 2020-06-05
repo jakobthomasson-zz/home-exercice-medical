@@ -15,5 +15,6 @@ const Wrapper = styled.div<{ align: string }>`
   overflow: hidden;
   display: flex;
   justify-content: ${({ align }) => align};
+  align-items: center;
   padding: 0 ${spacing.LARGE}px;
 `;

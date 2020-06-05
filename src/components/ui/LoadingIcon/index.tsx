@@ -3,10 +3,7 @@ import styled from "@emotion/styled";
 import {} from "variables";
 import Icon from "components/ui/Icon";
 
-type Props = {};
-
-const LoadingIcon: FunctionComponent<Props> = (props) => {
-  const { children } = props;
+const LoadingIcon: FunctionComponent = () => {
   return (
     <Wrapper>
       <Icon type="loading" size="large" />

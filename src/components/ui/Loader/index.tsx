@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { color, zIndex } from "variables";
+import { zIndex } from "variables";
 import Icon from "components/ui/Icon";
 import Overlay from "components/ui/Overlay";
 import { useDebounce } from "hooks";
@@ -9,12 +9,15 @@ type Props = { isLoading: boolean };
 
 const LoaderComponent: FunctionComponent<Props> = (props) => {
   const { isLoading } = props;
-  const debouncedInitilizing = useDebounce(isLoading, 100);
+  const debouncedInitilizing = useDebounce(isLoading, 200);
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     setShow(isLoading);
   }, [isLoading]);
-  if (!debouncedInitilizing) return null;
+
+  if (!debouncedInitilizing && show === false) return null;
+
   return (
     <Overlay show={show}>
       <Wrapper>

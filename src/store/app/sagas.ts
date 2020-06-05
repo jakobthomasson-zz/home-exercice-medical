@@ -16,7 +16,7 @@ import { testResultHelpers } from "store/testResult";
 
 import Fuse from "fuse.js";
 import { fileHelpers, parserHelpers, utilityHelpers } from "helpers";
-import "data/data.txt";
+
 function* initializeSaga() {
   try {
     yield put(
@@ -26,7 +26,7 @@ function* initializeSaga() {
       })
     );
 
-    // yield delay(100); // simulate loading
+    yield delay(600); // simulate loading
 
     const text: string = yield call(fileHelpers.readTextFile, [
       "data",
@@ -65,7 +65,7 @@ function* startSearchSaga(action: ActionType<typeof appActions.startSearch>) {
         status: "loading",
       })
     );
-    yield delay(200);
+    yield delay(400);
     const search = action.payload;
     if (utilityHelpers.isEmpty(search)) {
       const allPatientIds: string[] = yield select(patientSelectors.allIds);
@@ -116,7 +116,7 @@ function* startSelectSaga(action: ActionType<typeof appActions.startSelect>) {
     const patientId = action.payload;
     yield put(appActions.setSelectedPatientId(patientId));
 
-    yield delay(200);
+    yield delay(1000);
   } catch (error) {
     yield put(
       statusActions.setRequestStatus({

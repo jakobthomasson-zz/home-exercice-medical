@@ -12,7 +12,6 @@ const Row: FunctionComponent<Props> = (props) => {
       grid-template-columns: ${templateColumns};
     `;
   }, [columns]);
-  console.log(columnsStyle);
   return (
     <Wrapper css={columnsStyle} className="hej">
       {children}

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo, useCallback } from "react";
+import React, { FunctionComponent, useMemo } from "react";
 import styled from "@emotion/styled";
 import { SerializedStyles } from "@emotion/core";
 import SvgComponent from "./svg";

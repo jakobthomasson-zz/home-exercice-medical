@@ -21,7 +21,9 @@ export const HEADER_COLUMNS: System.HeaderColumn[] = [
   { fr: 1, title: "collected" },
   { fr: 1, title: "barcode" },
   { fr: 2, title: "test" },
-  { fr: 3, title: "result", align: "center" },
+  { fr: 1, title: "result" },
+  { fr: 1, title: "range" },
+  { fr: 1, title: "diagnostic", align: "center" },
 ];
 
 type StateProps = ReturnType<typeof mapStateToProps>;
@@ -35,25 +37,12 @@ const Content: FunctionComponent<Props> = (props) => {
       <div className="patient">
         {selectedPatient && (
           <>
-            <LabeledText
-              label="patient no"
-              text={selectedPatient.id}
-              size="medium"
-            />
-            <LabeledText
-              label="birthdate"
-              text={selectedPatient.dob}
-              size="medium"
-            />
-            <LabeledText
-              label="name"
-              text={selectedPatient.name}
-              size="large"
-            />
+            <LabeledText label="patient no" text={selectedPatient.id} />
+            <LabeledText label="birthdate" text={selectedPatient.dob} />
+            <LabeledText label="name" text={selectedPatient.name} />
             <LabeledText
               label="gender"
               text={selectedPatient.gender === "M" ? "Male" : "Female"}
-              size="medium"
             />
           </>
         )}
@@ -66,6 +55,7 @@ const Content: FunctionComponent<Props> = (props) => {
             <HeaderRow headerColumns={HEADER_COLUMNS} />
           </ListItem>
           {selectedPatient &&
+            !isSelecting &&
             selectedPatient.testIds.map((testId) => (
               <ListItem key={testId} size="large">
                 <TestResultRow testResultId={testId} />

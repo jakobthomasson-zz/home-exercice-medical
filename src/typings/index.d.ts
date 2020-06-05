@@ -74,7 +74,12 @@ declare namespace System {
 
 declare namespace Styles {
   export type BaseSize = "small" | "medium" | "large";
-  export type IconType = "loading" | "search";
+  export type IconType =
+    | "loading"
+    | "search"
+    | "happy-face"
+    | "neutral-face"
+    | "sad-face";
 
   export type TextType = "standard";
   type TextVariation = Partial<Record<"bold" | "italic" | "rule", boolean>>;

@@ -14,7 +14,7 @@ function getOptionalNumberValue(valueString: string) {
   const isEmpty = utilityHelpers.isEmpty(valueString);
   if (isEmpty) return undefined;
 
-  const returnValue = Number(valueString);
+  const returnValue = Number(valueString.replace(/\D/g, ""));
   if (isNaN(returnValue)) return undefined;
 
   return returnValue;
@@ -37,7 +37,8 @@ function* setDomainFromRawItems(rawItems: Diaverum.RawItem[]) {
       note,
       nonSpecRefs,
     } = rawItem;
-
+    if (barcode === "4010000912") {
+    }
     const collected = `${collectionDate}, ${collectionTime}`;
 
     const realResult: Diaverum.ResultType =

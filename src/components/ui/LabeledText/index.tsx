@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { color, spacing, zIndex } from "variables";
+import { color, spacing } from "variables";
 import styled from "@emotion/styled";
 import Text from "components/ui/Text";
 
-type Props = { label: string; text: string; size: Styles.BaseSize };
+type Props = { label: string; text: string };
 
 const LabeledText: FunctionComponent<Props> = (props) => {
-  const { children, label, size, text } = props;
+  const { label, text } = props;
   return (
     <Wrapper>
       <Text text={`${label}:`} size="small" />

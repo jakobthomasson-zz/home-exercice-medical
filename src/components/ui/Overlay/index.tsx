@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import styled from "@emotion/styled";
 import { color, zIndex } from "variables";
 type Props = { show: boolean };
-
 const Overlay: FunctionComponent<Props> = ({ children, show }) => {
   return <Wrapper aria-hidden={!show}> {children} </Wrapper>;
 };
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${color.SHADOW};
-  transition: opacity 0.1s;
+  transition: opacity 0.4s;
 
   &[aria-hidden="true"] {
     opacity: 0;

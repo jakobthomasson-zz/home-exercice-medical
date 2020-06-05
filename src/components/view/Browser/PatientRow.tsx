@@ -34,11 +34,3 @@ const Patient: FunctionComponent<Props> = (props) => {
 };
 
 export default connect(mapStateToProps)(Patient);
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-`;
